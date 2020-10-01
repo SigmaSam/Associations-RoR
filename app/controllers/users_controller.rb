@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    current_user = @users.find_by_id(session[:current_user_id])
   end
 
   # GET /users/1
