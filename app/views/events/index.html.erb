@@ -31,8 +31,8 @@
         <td><%= event.location.capitalize %></td>
         <td><%= event.creator.name.capitalize %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= edit_btn(event) %></td>
+        <td><%= destroy_btn(event) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,14 +44,19 @@
 <%= link_to 'New Event', new_event_path %>
 
 <div>
+<h2>Today Events</h2>
+  <% @today.each do |i| %>
+    <%= i.date %>
+    <%= i.title %><br>   
+  <% end %>
 <h2>Upcoming Events</h2>
-  <% @events.each do |i| %>
-    <%= nombre(i) %>
-    <%= upcoming(i) %>    
+  <% @upcoming.each do |i| %>
+    <%= i.date %>
+    <%= i.title %><br>   
   <% end %>
 <h2>Past Events</h2>
-  <% @events.each do |i| %>
-    <%= nombre_pasado(i) %>
-    <%= past(i) %>
+  <% @past.each do |i| %>
+    <%= i.date %>
+    <%= i.title %><br>
   <% end %>
 </div>

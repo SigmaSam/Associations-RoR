@@ -7,6 +7,18 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @users = User.all
+    @today = []
+    @past = []
+    @upcoming = []
+    @events.each do |event|
+      if event.date == Date.today
+        @today.push(event)
+      elsif event.date > Date.today
+        @upcoming.push(event)
+      else
+        @past.push(event)
+      end
+    end
   end
 
   # GET /events/1

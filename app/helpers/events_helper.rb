@@ -1,29 +1,9 @@
 module EventsHelper
-  def nombre(i)
-    if (i.date >= Date.today)
-      i.title
-    end 
+  def edit_btn(argg)
+    link_to 'Edit', edit_event_path(argg) unless current_user.nil?
   end
 
-  def nombre_pasado(i)
-    if (i.date < Date.today)
-      i.title
-    else 
-      nil
-    end 
-  end
-
-  def upcoming(i)
-      if (i.date >= Date.today)
-        i.date
-      end 
-  end
-
-  def past(i)
-    if (i.date < Date.today)
-      i.date 
-    else
-      nil
-    end
+  def destroy_btn(argg)
+    link_to 'Destroy', argg, method: :delete, data: { confirm: 'Are you sure?' } unless current_user.nil?
   end
 end
