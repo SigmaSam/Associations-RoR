@@ -13,7 +13,19 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     set_event
+    @users = User.all
     @user = User.find(@event.creator.id)
+    @attendees = Attendance.where(event_id: @event.id)
+  end
+
+  def attend
+    set_event
+    @attendee = Attendance.new
+    @attendee.event_id = @event.id
+    @attendee.user_id = current_user.id
+    @attendee.save
+
+    redirect_to @event
   end
 
   # GET /events/new
@@ -29,8 +41,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-   @event = Event.new(event_params)
-   @event.creator_id = current_user.id
+    @event = Event.new(event_params)
+    @event.creator_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -62,24 +74,6 @@ class EventsController < ApplicationController
     end
   end
 
-=begin  
-  def follow
-
-    @attendees = Attendance
-    @event = Event.find(params[:id])
-    @attendees.event_id << @event.id
-    @attendees.user_id << current_user.id
-    @attendees.users.where(event_id: event.id)
-    redirect_back(fallback_location: user_path(@user))
-  end
-  
-  def unfollow
-    @user = User.find(params[:id])
-    current_user.followed_users.find_by(followee_id: @user.id).destroy
-    redirect_back(fallback_location: user_path(@user))
-  end 
-=end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -92,7 +86,7 @@ class EventsController < ApplicationController
     end
 
     def user_login
-      redirect_to new_user_path if current_user.nil?
+      redirect_to login_path if current_user.nil?
     end
 
     def attendance_params
