@@ -20,7 +20,7 @@ class AttendancesController < ApplicationController
 
   private
 
-    def attendance_params
-      params.require(:attendance).permit(:event_id)
-    end
+  def attendance_params
+    params.require(:attendance).permit(:event_id)
+  end
 end
