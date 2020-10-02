@@ -2,12 +2,12 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @event.title %>
+  <%= @event.title.capitalize %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @event.body %>
+  <%= @event.body.capitalize %>
 </p>
 
 <p>
@@ -17,13 +17,14 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @event.location %>
+  <%= @event.location.capitalize %>
 </p>
 
 <p>
   <strong>Creator:</strong>
-  <%= @event.creator_id %>
+  <%= @user.name.capitalize %>
 </p>
 
+<%= link_to 'Attend', new_attendance_path %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
