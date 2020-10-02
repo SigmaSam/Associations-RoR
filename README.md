@@ -1,5 +1,7 @@
 # Associations-RoR
 
+Building a site similar to a private Eventbrite which allows users to create events and then manage user signups, and see attendees. 
+
 ## Built With
 
 - Ruby
