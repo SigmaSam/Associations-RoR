@@ -37,12 +37,13 @@ module EventsHelper
   end
 
   def event_list(table)
-    if table.empty?
-      "There are not events."
+    return "There are not events." if table.empty?
+    if table == @today
+      render 'today_event'
+    elsif table == @upcoming
+      render 'upcoming_event'
     else
-      table.each do |i|
-        return (i.date.to_s + '  ' + i.title.to_s)
-      end
+      render 'past_event'
     end
   end
 end
