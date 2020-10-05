@@ -30,5 +30,11 @@ module UsersHelper
       render 'next_attending'
     end
   end
+
+  def messages(user)
+    if user.errors.any?
+      render 'messages'
+    end
+  end
   
 end
