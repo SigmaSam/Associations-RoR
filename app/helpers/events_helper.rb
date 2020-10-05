@@ -46,4 +46,12 @@ module EventsHelper
       render 'past_event'
     end
   end
+
+  def messages(event)
+    @event = Event.find(params[:id])
+    if event.errors.any?
+      render 'messages'
+    end
+  end
+
 end
