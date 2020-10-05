@@ -16,12 +16,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to events_path, notice: 'Logged out!'
   end
-
-  def attend
-    attend = Attendance.new
-    attend.user_id = session[:user_id]
-    attend.event_id = params[:id]
-    attend.save
-    redirect_to events_path
-  end
 end
