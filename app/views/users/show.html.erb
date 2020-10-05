@@ -3,12 +3,30 @@
 <p>
   <strong>Name:</strong>
   <%= @user.name.capitalize %>
-</p>
-
-<p>
+  &nbsp;
+  &nbsp;
+  &nbsp;
   <strong>Email:</strong>
   <%= @user.email %>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', events_path %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', events_path %>
+<h2>Own Events</h2>
+
+<%= empty_own_table %>
+
+<h2>Today Events</h2>
+
+<%= empty_next_table %>
+
+<h2>Next Attending Events</h2>
+
+<%= empty_attend_table %>
+
+<h2>Attended events</h2>
+
+<%= empty_attended %>

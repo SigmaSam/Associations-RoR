@@ -27,14 +27,17 @@
 
 <p>
   <strong>Attendees:</strong>
-  <%= @attendees.where(event_id: @event.id).count %>
-  <% @attendees.where(event_id: @event.id).each do |i|%>
-    <p>
-      <%= @users.find(i.user_id).name %>
-    </p>
-  <% end %>
+  <%= @attendees.where(event_id: @event.id).count %><br><br>
+  <strong>Attendees:</strong>
+  <ol>
+    <% @attendees.where(event_id: @event.id).each do |i|%>
+      <li>
+        <%= @users.find(i.user_id).name.capitalize %>
+      </li>
+    <% end %>
+  </ol>
 </p>
 
-<%= button_to 'Attend', attend_event_path(@event), method: :post, confirm: 'really?' %>
+<%= link_to 'Attend', attend_event_path(@event), method: :post, confirm: 'really?' %> | 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
