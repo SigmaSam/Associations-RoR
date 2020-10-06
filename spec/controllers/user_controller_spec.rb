@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   let!(:user) { User.create(name: 'Jhonathan', email: 'Jhon@test.com') }
-  
+
   it 'Checks the creation of a new user' do
     get :new, session: { username: user.name, user_id: user.id }
     expect(response).to render_template('users/new')
@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
 
   it 'Checks the show page of an user' do
     get :show, params: { id: user.id }, session: { username: user.name, user_id: user.id }
-    expect(response).to render_template("users/show")
+    expect(response).to render_template('users/show')
   end
 
   it 'Checks the edit page of an user' do

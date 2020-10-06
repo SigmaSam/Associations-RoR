@@ -1,8 +1,10 @@
+# rubocop: disable Layout/LineLength
+
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-  let!(:user) { User.create(name: 'Jhonathan', email: 'Jhon@test.com')}
-  let!(:event) { Event.create(title: 'A very nice and well tough tittle.', body: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum', location: 'Medellin',date: '2020-03-10') }
+  let!(:user) { User.create(name: 'Jhonathan', email: 'Jhon@test.com') }
+  let!(:event) { Event.create(title: 'A very nice and well tough tittle.', body: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum', location: 'Medellin', date: '2020-03-10') }
 
   it 'checks for the creation of a session with a valid user' do
     post :create, params: { user: { name: user.name } }
@@ -19,3 +21,5 @@ RSpec.describe SessionsController, type: :controller do
     expect(subject).to redirect_to('/events')
   end
 end
+
+# rubocop: enable Layout/LineLength
