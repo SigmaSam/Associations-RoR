@@ -22,7 +22,20 @@ To get a local copy up and running follow these simple example steps:
 - Yarn
 - Terminal
 
-### Install
+### Installing
+
+#### Ruby:
+
+To install Ruby go to this [page](https://www.ruby-lang.org/en/) and follow the instructions given.
+
+#### Rails:
+
+To install Rails go to this [page](https://rubyonrails.org/) and follow the instructions given.
+
+#### Rubocop:
+Run `gem install rubocop`
+
+### Setup
 
 Clone the [repository URL](https://github.com/pastorp3/Forms-RoR.git), get into the project root folder and run the migrations for the database
 > rails db:migrate
@@ -40,16 +53,6 @@ For creating posts go to
 
 Log in or Create a new user to see all de avidable Events, When you create a user you have to Sign in to have acces to the Install
 
-#### Ruby:
-
-To install Ruby go to this [page](https://www.ruby-lang.org/en/) and follow the instructions given.
-
-#### Rails:
-
-To install Rails go to this [page](https://rubyonrails.org/) and follow the instructions given.
-
-#### Rubocop:
-Run `gem install rubocop`
 
 ## Test
 Be sure to install all the gems witn:
