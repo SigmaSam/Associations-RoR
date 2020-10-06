@@ -45,5 +45,4 @@ RSpec.describe EventsController, type: :controller do
     post :create, params: { event: { title: event.title, body: event.body, location: event.location, date: event.date, creator_id: user.id } }, session: { username: user.name, user_id: user.id }
     expect(subject).to redirect_to("/events/#{Event.last.id}")
   end
-
 end
