@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :user_login
+  before_action :user_login, except: %I[index show]
 
   # GET /events
   # GET /events.json
@@ -43,7 +43,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
-    @event.creator_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -84,7 +83,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:title, :body, :date, :location)
+    params.require(:event).permit(:title, :body, :date, :location, creator_id: current_user.id)
   end
 
   def user_login

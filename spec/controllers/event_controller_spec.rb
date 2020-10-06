@@ -11,11 +11,6 @@ RSpec.describe EventsController, type: :controller do
     expect(response).to render_template('events/index')
   end
 
-  it 'Checks the event index route with no user logged in' do
-    get :index, session: { username: nil, user_id: nil }
-    expect(response).to redirect_to('/login')
-  end
-
   it 'Checks the creation page of an event' do
     get :new, session: { username: user.name, user_id: user.id }
     expect(response).to render_template('events/new')
