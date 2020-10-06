@@ -6,7 +6,6 @@ RSpec.describe Event, type: :model do
   let!(:event) { Event.create(title: 'A very nice and well tough tittle.', body: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum', location: 'Medellin', date: '2020-03-10', creator_id: user.id) }
   let!(:attendance) { Attendance.create(user_id: user.id, event_id: event.id) }
 
-
   it 'Checks for a valid event input' do
     expect(event).to be_valid
   end
@@ -27,7 +26,6 @@ RSpec.describe Event, type: :model do
   it 'Event get the user info through the attendances' do
     expect(event.attendees.name).not_to be_nil
   end
-
 end
 
 # rubocop: enable Layout/LineLength

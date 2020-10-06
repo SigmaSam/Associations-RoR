@@ -30,7 +30,6 @@ RSpec.describe User, type: :model do
   it 'User gets the info of the attending events' do
     expect(user.events[0]).not_to be_nil
   end
-
 end
 
 # rubocop: enable Layout/LineLength
