@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title.capitalize %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @event.body.capitalize %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location.capitalize %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @user.name.capitalize %>
+</p>
+
+<p>
+  <strong>Attendees:</strong>
+  <%= @attendees.where(event_id: @event.id).count %><br><br>
+  <strong>Attendees:</strong>
+  <ol>
+    <% @attendees.where(event_id: @event.id).each do |i|%>
+      <li>
+        <%= @users.find(i.user_id).name.capitalize %>
+      </li>
+    <% end %>
+  </ol>
+</p>
+
+<%= link_to 'Attend', attend_event_path(@event), method: :post, confirm: 'really?' %> | 
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

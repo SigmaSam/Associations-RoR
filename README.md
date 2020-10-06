@@ -1,5 +1,7 @@
 # Associations-RoR
 
+Building a site similar to a private Eventbrite which allows users to create events and then manage user signups, and see attendees. 
+
 ## Built With
 
 - Ruby
@@ -20,14 +22,7 @@ To get a local copy up and running follow these simple example steps:
 - Yarn
 - Terminal
 
-### Setup
-
-Navigate to the root folder.
-Run:
-- `rails db:migrate`
-- `rails console`
-
-### Install
+### Installing
 
 #### Ruby:
 
@@ -40,7 +35,31 @@ To install Rails go to this [page](https://rubyonrails.org/) and follow the inst
 #### Rubocop:
 Run `gem install rubocop`
 
-### Usage
+### Setup
+
+Clone the [repository URL](https://github.com/pastorp3/Forms-RoR.git), get into the project root folder and run the migrations for the database
+> rails db:migrate
+
+Before run the Rails Server run the next command:
+>yarn install --check-files
+
+And then start the rails server from the terminal with the command
+> rails server
+
+After that go to your browser and put the following addresses in the address bar:
+
+For creating posts go to
+> localhost:3000/
+
+Log in or Create a new user to see all de avidable Events, When you create a user you have to Sign in to have acces to the Install
+
+
+## Test
+Be sure to install all the gems witn:
+> bundle install
+Run all of the tests with the command in the root:
+> rspec
+
 ## Authors
 
 👤 **Samuel Almao Herrera**
